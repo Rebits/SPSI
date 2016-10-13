@@ -25,6 +25,9 @@ int main(){
 	string total;
 	ficheroEntrada.open ( "criptograma21.txt" , ios::in);
 
+	cout << "Prueba esto ea";
+
+
 	  if (ficheroEntrada.is_open()) {
         while (! ficheroEntrada.eof() ) {
             getline (ficheroEntrada,frase);
