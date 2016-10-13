@@ -14,14 +14,14 @@ vector <int> div(int distancia){
 	divi.push_back(distancia);
 	return divi;
 }
-			
+
 
 
 
 int main(){
 	fstream ficheroEntrada;
-    string nombre;
-    string frase;
+  string nombre;
+  string frase;
 	string total;
 
     ficheroEntrada.open ( "criptograma21.txt" , ios::in);
@@ -34,7 +34,7 @@ int main(){
 
     }
     else{
-		cout << "Fichero inexistente o faltan permisos para abrirlo" << endl;  
+		cout << "Fichero inexistente o faltan permisos para abrirlo" << endl;
 		return 0;
 	}
 
@@ -48,13 +48,13 @@ int main(){
 		buf.push_back(total.at(i));
 		for(int j = i + 1; j < total.size();j++){
 			if(total.at(j) == total.at(i)){
-				if( (i + 1 !=	j) && (j+1 < total.size())){			
+				if( (i + 1 !=	j) && (j+1 < total.size())){
 					int i_0 = i+1;
 					int j_0 = j+1;
 					bool ter = false;
 					while(total.at(j_0) == total.at(i_0) && !ter){
-						buf.push_back(total.at(i_0));	
-						if(i_0 + 1 != j && j_0 + 1 < total.size()){		
+						buf.push_back(total.at(i_0));
+						if(i_0 + 1 != j && j_0 + 1 < total.size()){
 							j_0++;
 							i_0++;
 						}
@@ -62,18 +62,18 @@ int main(){
 							ter = true;
 						}
 					}
-					if(buf.size() > 1){ 
-						bool b = false;					
+					if(buf.size() > 1){
+						bool b = false;
 						for(int i = 0 ; (i < cadenas.size()) && !b ; i++){
-							b = false;	
+							b = false;
 
 							if(cadenas.at(i) == buf){
 								b = true;
 								int distancia = j_0 - ultima.at(i) ;
-								ultima.at(i) = j_0; 
+								ultima.at(i) = j_0;
 						 		distancias.at(i).push_back(distancia);
-							}	
-													
+							}
+
 						}
 						if(!b){
 
@@ -83,7 +83,7 @@ int main(){
 							vector <int> ve;
 							ve.push_back(distancia);
 						 	distancias.push_back(ve);
-							
+
 					}
 				}
 			}
@@ -101,7 +101,7 @@ for(int i = 0; i < distancias.size();i++){
 	for(int j = 0; j < distancias.at(i).size();j++){
 		vector <int> ve = div(distancias.at(i).at(j));
 		indices.at(i).insert(indices.at(i).end(),ve.begin(),ve.end());
-		
+
  	}
 }
 
@@ -133,9 +133,9 @@ for(int i = 0 ; i < contador.size(); i++){
 		maximo_3 = maximo_2;
 		maximo_2 = maximo;
 		maximo = contador.at(i);
- 		indice_4 = indice_3;	
+ 		indice_4 = indice_3;
  		indice_3 = indice_2;
- 		indice_2 = indice;	
+ 		indice_2 = indice;
 		indice = i;
 	}
 	else if(contador.at(i) > maximo_2){
@@ -143,26 +143,26 @@ for(int i = 0 ; i < contador.size(); i++){
 		maximo_3 = maximo_2;
 		maximo_2 = contador.at(i);
 
- 		indice_4 = indice_3;	
+ 		indice_4 = indice_3;
  		indice_3 = indice_2;
- 		indice_2 = i;	
+ 		indice_2 = i;
 	}
 
 	else if(contador.at(i) > maximo_3){
 		maximo_4 = maximo_3;
 		maximo_3 =contador.at(i);
 
- 		indice_4 = indice_3;	
+ 		indice_4 = indice_3;
  		indice_3 = i;
- 	
+
 	}
 
 	else if(contador.at(i) > maximo_4){
 		maximo_4 = contador.at(i);
 
- 		indice_4 = i;	
+ 		indice_4 = i;
 
- 	
+
 	}
 
 
@@ -170,7 +170,7 @@ for(int i = 0 ; i < contador.size(); i++){
 
 	cout << "Tamanio de contraseña más probable: " <<  indice << endl;
 
-	
+
 	cout << "Otras opciones:";
 	if(indice_2 > 0)
 		cout << indice_2 << "  " ;
@@ -178,7 +178,7 @@ for(int i = 0 ; i < contador.size(); i++){
  		cout << indice_3 << "  ";
 	if(indice_4 > 0)
 		cout << indice_4 << endl;
-    
+
 
 ficheroEntrada.close();
 
