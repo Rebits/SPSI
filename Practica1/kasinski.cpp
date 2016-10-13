@@ -23,9 +23,9 @@ int main(){
   string nombre;
   string frase;
 	string total;
+	ficheroEntrada.open ( "criptograma21.txt" , ios::in);
 
-    ficheroEntrada.open ( "criptograma21.txt" , ios::in);
-    if (ficheroEntrada.is_open()) {
+	  if (ficheroEntrada.is_open()) {
         while (! ficheroEntrada.eof() ) {
             getline (ficheroEntrada,frase);
 			total += frase;
